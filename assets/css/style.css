@@ -1,0 +1,7 @@
+.mainBackground { 
+    background: url("../images/background.png") no-repeat center fixed;
+    height: 100vh;
+    width:100%;
+    margin:0;
+    padding:0;
+}
