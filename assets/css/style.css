@@ -19,3 +19,6 @@
     cursor: pointer;
 }
 
+.centerImage {
+    justify-self:center;
+}
