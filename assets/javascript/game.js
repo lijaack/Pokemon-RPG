@@ -47,9 +47,17 @@ function newGame(){
         console.log (($("#yourPokemon").children().children("img").attr("attack")))
         console.log (($("#yourPokemon").children().children("img").attr("hp")))
         
-        if (($("#yourPokemon").children().length===1) && $("#opponentPokemon").children().length===1){
+        if (($("#yourPokemon").children().length===1) && $("#opponentPokemon").children().length===1 && yourPokemonHP>0){
             yourPokemonHP = yourPokemonHP - opponentPokemonAttack;
-            console.log(yourPokemonHP)
+            opponentPokemonHP = opponentPokemonHP - yourPokemonAttack;
+            $("#yourPokemon").children().children("P").text(yourPokemonHP);
+            $("#opponentPokemon").children().children("P").text(opponentPokemonHP);
+            if (opponentPokemonHP<= 0){
+                $("#opponentPokemon").empty();
+                $("#nextMoves").text("choose your next opponnent!");
+            }
+            yourPokemonAttack = Math.floor(yourPokemonAttack * 1.5);
+            console.log(yourPokemonAttack);
         }
 
     });
