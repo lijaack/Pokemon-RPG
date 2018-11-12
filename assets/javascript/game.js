@@ -18,8 +18,7 @@ function newGame(){
 
     // if btn is clicked, check if battle ares are occupied, then move the pokemon
     $(".btn").click(function(){
-        if ($("#yourPokemon").children().length===0){
-            console.log(this);         
+        if ($("#yourPokemon").children().length===0){         
             $(this).removeClass("pokemonimg btn")
             clonePokemon=$(this).closest("div").clone();
             ($(this).parent("div")).attr("style", "display:none");
@@ -35,6 +34,13 @@ function newGame(){
             $("#nextMoves").text("click attack to battle!");
 
         }
+    });
+
+    $("#attackButton").click(function(){
+        if (($("#yourPokemon").children().length===1) && $("#opponentPokemon").children().length===1){
+            console.log("hi");
+        }
+
     });
    
     
