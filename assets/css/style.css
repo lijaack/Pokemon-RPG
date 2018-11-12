@@ -5,6 +5,9 @@
     margin:0;
     padding:0;
 }
+p {
+    font-size:25px;
+}
 
 .margin20 {
     margin:10px;
