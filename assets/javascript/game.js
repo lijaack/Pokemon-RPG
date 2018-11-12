@@ -21,7 +21,7 @@ function newGame(){
         if ($("#yourPokemon").children().length===0){         
             $(this).removeClass("pokemonimg btn")
             clonePokemon=$(this).closest("div").clone();
-            ($(this).parent("div")).attr("style", "display:none");
+            ($(this).parent("div")).remove();
             $("#yourPokemon").append(clonePokemon);    
             $("#nextMoves").text("choose your opponent pokemon!");
 
@@ -29,7 +29,7 @@ function newGame(){
         else if($("#opponentPokemon").children().length===0){
             $(this).removeClass("pokemonimg btn")
             clonePokemon=$(this).closest("div").clone();
-            ($(this).parent("div")).attr("style", "display:none");
+            ($(this).parent("div")).remove();
             $("#opponentPokemon").append(clonePokemon);
             $("#nextMoves").text("click attack to battle!");
 
