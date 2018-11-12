@@ -18,22 +18,22 @@
         <!-- choose your pokemons here -->
         <div class="row justify-content-center">
             <div id="pokemon1">
-                    <img id="pikachu" class="margin20 pokemonimg btn"src="assets/images/pikachu.png"  alt="pikachu" width=100px height=100px attack="15" hp="120"/> 
+                    <img id="pikachu" class="margin20 pokemonimg button"src="assets/images/pikachu.png"  alt="pikachu" width=100px height=100px attack="15" hp="120" name="Pikachu" /> 
                     <p class="text-light text-center font-weight-bold" id="pikachu-hp"></span></p>
             </div>
             
             <div id="pokemon2">
-                    <img id="charmander" class="margin20 pokemonimg btn" src="assets/images/charmander.png"  alt="charmander" width=100px height=100px attack="10" hp="150">
+                    <img id="charmander" class="margin20 pokemonimg button" src="assets/images/charmander.png"  alt="charmander" width=100px height=100px attack="10" hp="150" name="Charmander">
                     <p class="text-light text-center font-weight-bold" id="charmander-hp"></p>
             </div>
             
             <div id="pokemon3">
-                    <img id="bulbasaur" class="margin20 pokemonimg btn" src="assets/images/bulbasaur.png"  alt="bulbasaur" width=100px height=100px attack="13" hp="140">
+                    <img id="bulbasaur" class="margin20 pokemonimg button" src="assets/images/bulbasaur.png"  alt="bulbasaur" width=100px height=100px attack="13" hp="140" name="Bulbasaur">
                     <p class="text-light text-center font-weight-bold" id="bulbasaur-hp"></p>
             </div>
            
             <div id="pokemon4">
-                    <img id="squirtle" class="margin20 pokemonimg btn" src="assets/images/squirtle.png"  alt="squirtle" width=100px height=100px attack="12" hp="130">
+                    <img id="squirtle" class="margin20 pokemonimg button" src="assets/images/squirtle.png"  alt="squirtle" width=100px height=100px attack="12" hp="130" name="Squirtle">
                     <p class="text-light text-center font-weight-bold" id="squirtle-hp"></p>
            
             </div>
@@ -54,8 +54,12 @@
             <!-- attack button -->
             <div class="col-4">
                 <div class="row justify-content-center">
-                    <button id="attackButton">Attack!</button>
+                    <button class="btn btn-danger" id="attackButton">Attack!</button>
                 </div>
+                <br>
+                <div class="row justify-content-center"> 
+                    <button class="btn btn-info"id="newGameButton">New Game!</button>
+                </div>        
             </div>
             <!-- opponent pokemon moves here -->
             <div class="col-4">
@@ -66,10 +70,11 @@
 
         <!-- attack messages shows here -->
         <div class="row justify-content-center">
-            <p id="attackMessage"></p>
+            <strong><p class="text-attack" id="yourAttackMessage"></p></strong>
         </div>
-
-
+        <div class="row justify-content-center">
+            <strong><p class="text-danger" id="opponentAttackMessage"></p></strong>
+        </div>
 
 
 

@@ -25,3 +25,13 @@ p {
 .centerImage {
     justify-self:center;
 }
+
+.text-attack {
+    color: #004400;
+}
+
+.newGameBtn {
+    position:fixed;
+    top:5%;
+    left:5%;
+}
