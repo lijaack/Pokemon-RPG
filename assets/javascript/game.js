@@ -2,16 +2,19 @@ $( document ).ready(newGame());
 
 
 function newGame(){
-    var pikachuHP = 120;
+    var pikachuHP = ($("#pikachu").attr("hp"));
     $("#pikachu-hp").text(pikachuHP);
-    var charmanderHP = 150;
+    var charmanderHP = ($("#charmander").attr("hp"));
     $("#charmander-hp").text(charmanderHP);
-    var bulbasaurHP = 140;
+    var bulbasaurHP = ($("#bulbasaur").attr("hp"));
     $("#bulbasaur-hp").text(bulbasaurHP);
-    var squirtleHP = 130;
+    var squirtleHP = ($("#squirtle").attr("hp"));
     $("#squirtle-hp").text(squirtleHP);
+    var yourPokemonAttack = 0;
+    var opponentPokemonAttack = 0;
     var yourPokemonHP = 0;
     var opponentPokemonHP = 0;
+    
     var clonePokemon="";
 
     $("#nextMoves").text("choose your pokemon!");
@@ -24,6 +27,8 @@ function newGame(){
             ($(this).parent("div")).remove();
             $("#yourPokemon").append(clonePokemon);    
             $("#nextMoves").text("choose your opponent pokemon!");
+            yourPokemonHP = ($("#yourPokemon").children().children("img").attr("hp"))
+            yourPokemonAttack = ($("#yourPokemon").children().children("img").attr("attack"))
 
         }
         else if($("#opponentPokemon").children().length===0){
@@ -32,13 +37,19 @@ function newGame(){
             ($(this).parent("div")).remove();
             $("#opponentPokemon").append(clonePokemon);
             $("#nextMoves").text("click attack to battle!");
+            opponentPokemonHP = ($("#opponentPokemon").children().children("img").attr("hp"))
+            opponentPokemonAttack = ($("#opponentPokemon").children().children("img").attr("attack"))
 
         }
     });
-
+    // pokemons attack each other one time if attack button is clicked
     $("#attackButton").click(function(){
+        console.log (($("#yourPokemon").children().children("img").attr("attack")))
+        console.log (($("#yourPokemon").children().children("img").attr("hp")))
+        
         if (($("#yourPokemon").children().length===1) && $("#opponentPokemon").children().length===1){
-            console.log("hi");
+            yourPokemonHP = yourPokemonHP - opponentPokemonAttack;
+            console.log(yourPokemonHP)
         }
 
     });
@@ -47,6 +58,13 @@ function newGame(){
     
     
     
+    // var yourPokemonAttack = ($("#yourPokemon").children().children("img").attr("attack"));
+    // var opponentPokemonAttack = ($("#opponentPokemon").children().children("img").attr("attack"));
+    // var yourPokemonHP = ($("#yourPokemon").children().children("img").attr("hp"));
+    // var opponentPokemonHP = ($("#opponentPokemon").children().children("img").attr("hp"));
+
+
+
     // check if "yourpokemon" or "opponentpokemon" area is occupied 
     // function movePokemon(){
     //     if ($("#yourPokemon").children().length===0){   
