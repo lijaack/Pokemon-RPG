@@ -1,7 +1,7 @@
 # Pokemon-RPG
 A pokemon battle game that I made. 
 You can play it here -->https://lijaack.github.io/Pokemon-RPG/
-
+![pokemon-rpg game](assets/images/pokemon-rpg.png)
 
 ## Built With
 
