@@ -27,11 +27,15 @@ p {
 }
 
 .text-attack {
-    color: #004400;
+    color: #0C260C;
 }
 
-.newGameBtn {
+.musicBox {
     position:fixed;
     top:5%;
-    left:5%;
+    right:5%;
+}
+audio{
+    display:block;
+    width:88px;
 }

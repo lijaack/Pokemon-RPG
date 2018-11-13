@@ -16,12 +16,13 @@ function newGame(){
     var opponentPokemonHP = 0;
     var clonePokemon="";
     var pokemonKills=0;
+    var yourPokemonFainted=0;
     $("#nextMoves").text("choose your pokemon!");
     $("#yourAttackMessage").text("Defeat 3 Pokemons to win!");
 
     // if button is clicked, check if battle ares are occupied, then move the pokemon
     $(".button").click(function(){
-        if ($("#yourPokemon").children().length===0){         
+        if ($("#yourPokemon").children().length===0 && yourPokemonFainted===0){         
             // $(this).removeClass("pokemonimg button")
             clonePokemon=$(this).closest("div").clone();
             clonePokemon.children("img").attr("style","border:green solid 2px");
@@ -51,27 +52,33 @@ function newGame(){
         console.log (($("#yourPokemon").children().children("img").attr("attack")))
         console.log (($("#yourPokemon").children().children("img").attr("hp")))
         
-        if (($("#yourPokemon").children().length===1) && $("#opponentPokemon").children().length===1 && yourPokemonHP>0){
+        if (($("#yourPokemon").children().length===1) && $("#opponentPokemon").children().length===1 && yourPokemonFainted===0){
             var yourPokemonName = $("#yourPokemon").children().children("img").attr("name");
             var opponentPokemonName = $("#opponentPokemon").children().children("img").attr("name");
-            yourPokemonHP = yourPokemonHP - opponentPokemonAttack;
             opponentPokemonHP = opponentPokemonHP - yourPokemonAttack;
-            $("#yourPokemon").children().children("P").text(yourPokemonHP);
-            $("#opponentPokemon").children().children("P").text(opponentPokemonHP);
             $("#yourAttackMessage").text(yourPokemonName + " attacks " + opponentPokemonName + " for " + yourPokemonAttack + " damage.")
-            $("#opponentAttackMessage").text(opponentPokemonName + " attacks " + yourPokemonName + " for " + opponentPokemonAttack + " damage.")
+            $("#opponentPokemon").children().children("P").text(opponentPokemonHP);
+            if (opponentPokemonHP>0){
+                yourPokemonHP = yourPokemonHP - opponentPokemonAttack;
+                $("#opponentAttackMessage").text(opponentPokemonName + " attacks " + yourPokemonName + " for " + opponentPokemonAttack + " damage.")
+                $("#yourPokemon").children().children("P").text(yourPokemonHP);
+            }
             if (opponentPokemonHP<= 0){
                 $("#opponentPokemon").empty();
                 pokemonKills++;
+                $("#opponentAttackMessage").text(opponentPokemonName + " has fainted.");
                 $("#nextMoves").text("choose your next opponnent!");
             }
             if (pokemonKills===3){
                 $("#nextMoves").text("You Win!")
             }
             if(yourPokemonHP<=0) {
+                $("#yourPokemon").empty();
+                $("#youFaintedMessage").text(yourPokemonName + " has fainted.");
+                yourPokemonFainted++
                 $("#nextMoves").text("You Lose.")
             }
-            yourPokemonAttack = Math.floor(yourPokemonAttack * (Math.random()+0.8));
+            yourPokemonAttack = Math.floor(yourPokemonAttack * (Math.random()+0.75));
             console.log(yourPokemonAttack);
         }
 
@@ -95,8 +102,10 @@ function newGame(){
         $("#nextMoves").text("choose your pokemon!");
         $("#yourAttackMessage").text("Defeat 3 Pokemons to win!");
         $("#opponentAttackMessage").empty()
+        $("#youFaintedMessage").empty();
         pokemonKills=0;
-        var yourPokemonName="";
-        var opponentPokemonName="";
+        yourPokemonName="";
+        opponentPokemonName="";
+        yourPokemonFainted=0;
     });
 }
