@@ -39,3 +39,7 @@ audio{
     display:block;
     width:88px;
 }
+
+.min-height-170{
+    min-height: 170px;
+}
